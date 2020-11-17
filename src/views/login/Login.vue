@@ -29,12 +29,12 @@
                     </div>
                     <button class="button is-info is-fullwidth mt-2">Login</button>
                     <div class="mt-2">
-                        <label>New to FIRSTClass?  <a href="#" class="has-text-info">Create an account</a>.</label>
+                        <label>New to FIRST Class?  <a href="#" class="has-text-info">Create an account</a>.</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column">
+        <div class="column" id="img">
             <img src="../../assets/background-login.jpg" class="image is-fullwidth">
         </div>
     </div>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#img {
+    padding-bottom: 0 !important;
+}
+
 .image {
     height: 100vh;
 }
