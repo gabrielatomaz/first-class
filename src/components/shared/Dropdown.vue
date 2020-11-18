@@ -37,7 +37,7 @@ export default {
 
     methods: {
         emitValue() {
-            this.$emit('modelDropdown', this.model)
+            this.$emit('model', this.model)
         },
     },
 }

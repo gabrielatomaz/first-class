@@ -1,31 +1,35 @@
 <template>
-    <div class="columns is-vcentered">
-        <div class="column is-two-fifths">
-            <div class="columns is-centered">
-                <div class="column is-two-thirds">
+    <div class="columns is-mobile is-vcentered">
+        <div class="column is-5-desktop is-12-mobile">
+            <div class="columns is-centered is-mobile">
+                <div class="column is-10-desktop is-8-tablet is-8-mobile">
                     <Logo />
-                    <Input
-                        type="text"
-                        placeholder="Email"
-                        icon="envelope"
-                    />
-                    <Input
-                        type="password"
-                        placeholder="Password"
-                        icon="lock"
-                    />
-                    <Button 
-                        class="mt-2"
-                        text="Login"
-                        :event="login"
-                    />
+                    <form @submit="login" method="post" id="login">
+                        <Input
+                            type="text"
+                            placeholder="Email"
+                            icon="envelope"
+                            required
+                        />
+                        <Input
+                            type="password"
+                            placeholder="Password"
+                            icon="lock"
+                        />
+                        <Button 
+                            class="mt-2"
+                            text="Login"
+                            :event="login"
+                            
+                        />
+                    </form>
                     <div class="mt-2">
                         <label>New to FIRST Class?  <router-link to="/register" class="has-text-info">Create an account</router-link>.</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="column" id="img">
+        <div class="column is-hidden-touch" id="img">
             <img src="../../assets/background-login.svg" class="image is-fullwidth">
         </div>
     </div>
@@ -44,7 +48,8 @@ export default {
     },
 
     methods: {
-        login() {
+        login(event) {
+            event.preventDefault();
             return
         },
     }
@@ -59,5 +64,11 @@ export default {
 
 .image {
     height: 100vh;
+}
+
+@media screen and (max-width: 1023px){
+    .column.is-12-mobile {
+        margin-top: calc(100vh / 4);
+    }
 }
 </style>

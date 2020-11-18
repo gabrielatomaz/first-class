@@ -46,7 +46,7 @@ export default {
     },
 
     emitValue() {
-      this.$emit('modelInput', this.model)
+      this.$emit('model', this.model)
     },
 
   },

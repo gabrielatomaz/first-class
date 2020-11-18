@@ -1,11 +1,11 @@
 <template>
     <div class="columns is-vcentered">
-        <div class="column" id="img">
+        <div class="column is-hidden-touch" id="img">
             <img src="../../assets/background-register.svg" class="image is-fullwidth">
         </div>
-        <div class="column is-three-fifths">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters">
+        <div class="column is-7-desktop is-12-mobile">
+            <div class="columns is-centered is-mobile">
+                <div class="column is-10-desktop is-8-tablet is-8-mobile">
                     <Logo />
                     <div class="field">
                         <div class="field-body">
