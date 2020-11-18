@@ -113,4 +113,10 @@ export default {
 .image {
     height: 100vh;
 }
+
+@media screen and (max-width: 1023px){
+    .column.is-12-mobile {
+        margin-top: calc(100vh / 16);
+    }
+}
 </style>
