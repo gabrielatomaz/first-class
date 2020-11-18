@@ -1,7 +1,7 @@
 <template>
 <div class="field">
   <p :class="['control', hasIcon() ? 'has-icons-left' : '']">
-    <input :class="['input', `is-${color}`]" :type="type" :placeholder="placeholder">
+    <input :class="['input', `is-${color}`]" :type="type" :placeholder="placeholder" v-model="model" />
     <span class="icon is-small is-left" v-if="hasIcon()" v-html="displayIcon()"></span>
   </p>
 </div>
@@ -32,6 +32,10 @@ export default {
     }
   },
 
+  data() {
+    return { model: null }
+  },
+
   methods: {
     displayIcon() {
       return this.hasIcon() ? `<i class="fas fa-${this.icon}"></i></span>` : ''
@@ -40,6 +44,11 @@ export default {
     hasIcon() {
       return this.icon
     },
+
+    emitValue() {
+      this.$emit('modelInput', this.model)
+    },
+
   },
 }
 </script>

@@ -14,9 +14,16 @@
                                 placeholder="Full name"
                                 icon="user"
                             />
+                        </div>
+                        <div class="field-body mt-2">
                             <Input
                                 type="email"
                                 placeholder="Email"
+                                icon="envelope"
+                            />
+                            <Input
+                                type="email"
+                                placeholder="Confirm email"
                                 icon="envelope"
                             />
                         </div>
@@ -26,6 +33,8 @@
                                 placeholder="Team number"
                                 icon="users"
                             />
+                        </div>
+                        <div class="field-body mt-2">
                             <Input
                                 type="phone"
                                 placeholder="Phone"
@@ -56,6 +65,9 @@
                                 icon="globe-americas"
                             />
                         </div>
+                        <div class="field-body mt-2">
+                            <Dropdown :options="[{ text: 'Male'}, { text: 'Female' }, { text: 'Non-binary' }, { text: 'Other' }]" placeholder="Select gender" />
+                        </div>
                         <Button 
                             class="mt-2"
                             text="Register"
@@ -72,7 +84,7 @@
 </template>
 
 <script>
-import { Logo, Input, Button } from '../../components/shared'
+import { Logo, Input, Button, Dropdown } from '../../components/shared'
 export default {
     name: 'Register',
 
@@ -80,6 +92,7 @@ export default {
         Logo,
         Input,
         Button,
+        Dropdown,
     },
 
     methods: {
