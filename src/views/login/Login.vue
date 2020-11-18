@@ -3,51 +3,57 @@
         <div class="column is-two-fifths">
             <div class="columns is-centered">
                 <div class="column is-two-thirds">
-                    <nav class="level is-mobile">
-                        <div class="level-item has-text-centered has-text-info">
-                            <div>
-                            <i class="fas fa-book-open fa-3x"></i>
-                            <h1>FIRST Class</h1>
-                            </div>
-                        </div>
-                    </nav>
-                    <div class="field">
-                        <p class="control has-icons-left has-icons-right">
-                            <input class="input is-info" type="email" placeholder="Email">
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <input class="input is-info" type="password" placeholder="Password">
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <button class="button is-info is-fullwidth mt-2">Login</button>
+                    <Logo />
+                    <Input
+                        type="text"
+                        placeholder="Email"
+                        icon="envelope"
+                    />
+                    <Input
+                        type="password"
+                        placeholder="Password"
+                        icon="lock"
+                    />
+                    <Button 
+                        class="mt-2"
+                        text="Login"
+                        :event="login"
+                    />
                     <div class="mt-2">
-                        <label>New to FIRST Class?  <a href="#" class="has-text-info">Create an account</a>.</label>
+                        <label>New to FIRST Class?  <router-link to="/register" class="has-text-info">Create an account</router-link>.</label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="column" id="img">
-            <img src="../../assets/background-login.jpg" class="image is-fullwidth">
+            <img src="../../assets/background-login.svg" class="image is-fullwidth">
         </div>
     </div>
 </template>
 
 <script>
+import { Logo, Input, Button } from '../../components/shared'
+
 export default {
     name: 'Login',
+
+    components: {
+        Logo,
+        Input,
+        Button,
+    },
+
+    methods: {
+        login() {
+            return
+        },
+    }
 }
 </script>
 
 <style lang="css" scoped>
 #img {
+    background-color: hsl(204, 86%, 53%, 0.25);
     padding-bottom: 0 !important;
 }
 
