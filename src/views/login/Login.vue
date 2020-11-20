@@ -20,7 +20,6 @@
                             class="mt-2"
                             text="Login"
                             :event="login"
-                            
                         />
                     </form>
                     <div class="mt-2">
@@ -49,6 +48,7 @@ export default {
 
     methods: {
         login(event) {
+            this.$router.push('/index')
             event.preventDefault();
             return
         },

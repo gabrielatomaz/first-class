@@ -1,6 +1,6 @@
 <template>
         <button 
-            :class="['button', `is-${color}`, isFullWidth, isLoading]"
+            :class="['button', `is-${color}`, isFullWidth, isLoading, hasType, hasSize]"
             @click="event"
             v-html="text || hasIcon"
         />
@@ -17,6 +17,12 @@ export default {
         event: {
             type: Function,
             required: true,
+        },
+        size: {
+            type: String,
+        },
+        type: {
+            type: String,
         },
         color: {
           type: String,
@@ -46,6 +52,14 @@ export default {
 
         hasIcon() {
             return this.icon ? `<i class="fas fa-${this.icon}"></i>` : ''
+        },
+        
+        hasType() {
+            return this.type ? `is-${this.type}` : ''
+        },
+
+        hasSize() {
+            return this.size ? `is-${this.size}` : ''
         },
     },
 }
