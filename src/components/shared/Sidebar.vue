@@ -1,28 +1,33 @@
 <template>
-  <div class="columns">
-      <div class="column is-3" id="sidebar">
-          <div class="ml-2">
-            <Button 
-                icon="chevron-left"
-                type="outlined" 
-                :fullWidth="false" 
-                size="small"
-            />
-          </div>
-        <div class="is-centered">
+    <div class="columns">
+        <div class="column is-3">
+            <div class="ml-2">
+                <Button 
+                    icon="chevron-left"
+                    type="outlined" 
+                    :fullWidth="false" 
+                    size="small"
+                    class="mt-2"
+                    :event="goBack"
+                />
+            </div>
             <figure id="avatar" class="image is-128x128">
                 <img class="is-rounded" src="../../assets/female-avatar.svg">
             </figure>
-            <div class="has-text-centered mt-4">
+            <div class="mt-4 has-text-centered">
                 <router-link  class="has-text-info" to="/profile"> {{ user.name }} </router-link>
             </div>
-            <div class="has-text-centered mt-4">
-                <Button text="My badges" type="outlined" :fullWidth="false" />
+            <div  class="mt-4 has-text-centered ml-2">
+                <Button text="My badges" type="outlined" :event="goToBages" />
+            </div>
+            <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
+                <Button text="My students" type="outlined" :event="goToStudents" />
             </div>
         </div>
-        <img id="bottom-image" width="300" src="../../assets/sidebar.svg" />
-      </div>
-  </div>
+        <div class="column is-8 mt-2 mr-0 mb-2 ml-5">
+            <router-view :key="$route.path" />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -37,24 +42,40 @@ export default {
         return {
             user: {
                 name: 'Gabriela Tomaz do Amaral Ribeiro',
+                mentor: true,
             },
         }
-    }
+    },
+    
+    methods: {
+        goToBages() {
+            this.goTo('/badges')
+        },
+
+        goToStudents() {
+            this.goTo('/students')
+        },
+
+        goTo(route) {
+            this.$router.push(route)
+        },
+        
+        goBack() {
+            this.$router.go(-1)
+        }
+    },
 }
 </script>
 
 <style lang="css" scoped>
-#sidebar {
-    height: 100vh;
+.column.is-3 {
     background-color: hsl(204, 86%, 53%, 0.25);
-}
-
-.columns {
-    margin-top: 0 !important;
+    min-height: 100vh;
 }
 
 figure#avatar {
     margin-right: auto;
     margin-left: auto;
 }
+
 </style>

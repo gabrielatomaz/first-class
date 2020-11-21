@@ -35,6 +35,9 @@ export default {
         icon: {
             type: String,
         },
+        iconColor: {
+            type: String,
+        },
         fullWidth: {
             type: Boolean,
             default: true,
@@ -51,7 +54,7 @@ export default {
         },
 
         hasIcon() {
-            return this.icon ? `<i class="fas fa-${this.icon}"></i>` : ''
+            return this.icon ? `<i class="fas fa-${this.icon} ${this.iconColor}"></i>` : ''
         },
         
         hasType() {

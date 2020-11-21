@@ -1,4 +1,6 @@
-import { Login, Register } from '../views'
+import { Login, Register, Subjects } from '../views'
+import Levels from '../views/subjects/levels/Levels.vue'
+import Content from '../views/subjects/levels/content/Content.vue'
 import { Sidebar } from '../components/shared'
 
 export default {
@@ -18,9 +20,22 @@ export default {
             component: Register,
         },
         {
-            path: '/index',
-            name: 'sidebar',
+            path: '/class',
             component: Sidebar,
-        }
+            children: [
+                { 
+                    path: '', 
+                    component: Subjects
+                },
+                {
+                    path: ':subject',
+                    component: Levels,
+                },
+                {
+                    path: ':subject/:level',
+                    component: Content,
+                }
+            ]
+        },
     ]
 }
