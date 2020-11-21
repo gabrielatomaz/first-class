@@ -4,7 +4,7 @@
             <div class="columns is-centered is-mobile">
                 <div class="column is-10-desktop is-8-tablet is-8-mobile">
                     <Logo />
-                    <form @submit="login" method="post" id="login">
+                    <form id="login">
                         <Input
                             type="text"
                             placeholder="Email"

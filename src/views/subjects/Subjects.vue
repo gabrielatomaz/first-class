@@ -1,8 +1,12 @@
 <template>
     <div>
+        <AddModal 
+            title="Add a new subject"
+            :close="showAddModal" 
+            v-if="isAddModalActive" />
         <div class="columns">
             <div class="column mt-5">
-                <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" />
+                <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" :event="showAddModal" />
             </div>
         </div>
         <div class="columns">
@@ -17,6 +21,7 @@
 
 <script>
 import { Card } from '../../components/subjects'
+import { AddModal } from '../../components/subjects/shared'
 import Button from '../../components/shared/Button'
 
 export default {
@@ -25,6 +30,7 @@ export default {
     components: { 
         Card,
         Button,
+        AddModal,
     },
 
     data() {
@@ -38,8 +44,15 @@ export default {
                 { title: 'Pneumatics', path: 'pneumatics', progress: 0 },
                 { title: 'Programming', path: 'programming', progress: 10 },
                 { title: 'Strategy', path: 'strategy', progress: 0 },
-            ]
+            ],
+            isAddModalActive: false,
         }
     },
+
+    methods: {
+        showAddModal() {
+            this.isAddModalActive = !this.isAddModalActive
+        }
+    }
 }
 </script>
