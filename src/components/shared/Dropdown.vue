@@ -1,8 +1,8 @@
 <template>
 <div class="field">
   <div class="control is-expanded">
-    <div :class="['select', 'is-fullwidth', `is-${color}`]">
-      <select v-model="model">
+    <div :class="['select', 'is-fullwidth', `is-${color ? color : 'info'}`]">
+      <select v-model="model" @change="emitValue">
         <option value="" disabled>{{ placeholder }}</option>
         <option v-for="option in options" :key="option.text">
             {{ option.text }}

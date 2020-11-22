@@ -1,7 +1,13 @@
 <template>
 <div class="field">
   <p :class="['control', hasIcon() ? 'has-icons-left' : '']">
-    <input :class="['input', `is-${color}`]" :type="type" :placeholder="placeholder" v-model="model" @change="emitValue" />
+    <input 
+      :class="['input', `is-${color ? color : 'info'}`]" 
+      :type="type" 
+      :placeholder="placeholder" 
+      v-model="model" 
+      @change="emitValue" 
+    />
     <span class="icon is-small is-left" v-if="hasIcon()" v-html="displayIcon()"></span>
   </p>
 </div>

@@ -14,7 +14,11 @@
             <transition name="fade">
                 <div v-if="showBadges">
                     <nav class="level">
-                        <div class="level-item has-text-centered mt-4" v-for="badge in badges" :key="badge">
+                        <div 
+                            class="level-item has-text-centered mt-4" 
+                            v-for="badge in badges" 
+                            :key="`${badge.type}-${badge.color}`"
+                        >
                             <div>
                                 <Badge :badge="badge.type" :color="badge.color" />
                                 <p class="title is-6 mt-3">{{ badge.level.text }}</p>

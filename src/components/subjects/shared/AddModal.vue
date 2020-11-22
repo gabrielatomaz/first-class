@@ -4,6 +4,11 @@
             {{ title }}
         </span>
         <form class="mt-5">
+            <ErrorMessage 
+                message="Sorry, you can't send empty values."
+                v-if="showErrorMessage" 
+                @close="closeErrorMessage"
+            />
             <div v-if="hasInputs()">
                 <div class="field has-addons" v-for="(input, counter) in inputs" :key="input.id">
                     <div class="control is-expanded">
@@ -33,7 +38,7 @@
 </template>
 
 <script>
-import { Modal, Input, Button } from '../../shared'
+import { Modal, Input, Button, ErrorMessage } from '../../shared'
 
 export default {
     name: 'AddModal',
@@ -42,6 +47,7 @@ export default {
         Modal,
         Input,
         Button,
+        ErrorMessage,
     },
 
     props: {
@@ -57,7 +63,10 @@ export default {
     },
 
     data() {
-        return { inputs: [{ value: '', id: this.getId() }] }
+        return { 
+            inputs: [{ value: '', id: this.getId() }],
+            showErrorMessage: false,
+        }
     },
 
     methods: {
@@ -77,6 +86,15 @@ export default {
 
         sendValues() {
             event.preventDefault()
+            
+            for (const input of this.inputs) {
+                if (!input.value) { 
+                    this.showErrorMessage = true
+
+                    return
+                }
+            }
+
             this.$emit('close')
         },
 
@@ -87,6 +105,10 @@ export default {
 
         getId() {
             return Math.floor(Math.random() * 100)
+        },
+
+        closeErrorMessage() {
+            this.showErrorMessage = false
         }
     }
 }

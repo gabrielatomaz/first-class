@@ -2,9 +2,27 @@
     <Card>
         <span class="title is-4 has-text-info"> {{ title }} </span>
         <div class="is-pulled-right">
-            <Button color="white" :fullWidth="false"  icon="eye" :iconColor="iconColor()" :event="setWatched"/>
-            <Button color="white" :fullWidth="false"  icon="question-circle" iconColor="has-text-grey-light"/>
-            <Button color="white" :fullWidth="false"  icon="trash" iconColor="has-text-grey-light"/>
+            <Button 
+                color="white" 
+                :fullWidth="false"  
+                icon="eye" 
+                :iconColor="iconColor()" 
+                :event="setWatched"
+            />
+            <Button 
+                color="white" 
+                :fullWidth="false"  
+                icon="question-circle" 
+                iconColor="has-text-grey-light"
+                :event="askForHelp"
+            />
+            <Button 
+                color="white" 
+                :fullWidth="false"  
+                icon="trash" 
+                iconColor="has-text-grey-light"
+                :event="remove"
+            />
         </div>
     </Card>
 </template>
@@ -44,6 +62,14 @@ export default {
         setWatched() {
             this.watchedContent = !this.watchedContent 
         },
+
+        askForHelp() {
+            this.$emit('help')
+        },
+
+        remove() {
+            this.$emit('remove')
+        }
     },
 }
 </script>

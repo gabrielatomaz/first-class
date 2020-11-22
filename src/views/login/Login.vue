@@ -4,17 +4,23 @@
             <div class="columns is-centered is-mobile">
                 <div class="column is-10-desktop is-8-tablet is-8-mobile">
                     <Logo />
+                    <ErrorMessage 
+                        message="Sorry, but email and/or password can't be empty!" 
+                        @close="closeErrorMessage"
+                        v-if="showErrorMessage"
+                    />
                     <form id="login">
                         <Input
                             type="text"
                             placeholder="Email"
                             icon="envelope"
-                            required
+                            @model="setEmail"
                         />
                         <Input
                             type="password"
                             placeholder="Password"
                             icon="lock"
+                            @model="setPassowrd"
                         />
                         <Button 
                             class="mt-2"
@@ -35,7 +41,7 @@
 </template>
 
 <script>
-import { Logo, Input, Button } from '../../components/shared'
+import { Logo, Input, Button, ErrorMessage } from '../../components/shared'
 
 export default {
     name: 'Login',
@@ -44,13 +50,35 @@ export default {
         Logo,
         Input,
         Button,
+        ErrorMessage,
+    },
+
+    data() {
+        return { 
+            email: '', 
+            password: '', 
+            showErrorMessage: false, 
+        }
     },
 
     methods: {
         login(event) {
-            this.$router.push('/subjects')
             event.preventDefault();
-            return
+
+            if (!this.email || !this.password) this.showErrorMessage = true
+            else this.$router.push('/subjects')
+        },
+
+        setEmail(email) {
+            this.email = email
+        },
+
+        setPassowrd(password) {
+            this.password = password
+        },
+
+        closeErrorMessage() {
+            this.showErrorMessage = false
         },
     }
 }

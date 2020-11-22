@@ -2,7 +2,7 @@
     <Card>
         <router-link class="title is-4 has-text-info" :to="path"> {{ title }} </router-link>
         <div class="is-pulled-right mb-4">
-            <Button color="white" :fullWidth="false"  icon="trash" iconColor="has-text-grey-light"/>
+            <Button color="white" :fullWidth="false" :event="remove"  icon="trash" iconColor="has-text-grey-light"/>
         </div>
         <progress class="progress is-info mt-3" :value="progress" max="100" />
     </Card>
@@ -32,6 +32,11 @@ export default {
         },
     },
 
+    methods: {
+        remove() {
+            this.$emit('remove')
+        }
+    }
 }
 </script>
 
