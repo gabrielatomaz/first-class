@@ -3,33 +3,21 @@
         <span class="title is-4 has-text-info">
             {{ title }}
         </span>
-        <form class="mt-5"> 
-            <div class="field has-addons">
-                <div class="control is-expanded">
-                    <Input
-                        type="text"
-                        :placeholder="title"
-                        required
-                    />
-                </div>
-                <div class="control">
-                    <Button icon="plus" type="outlined" :fullWidth="false" :event="addInput" />
-                </div>
-            </div>
+        <form class="mt-5">
             <div v-if="hasInputs()">
-                <div class="field has-addons" v-for="(input, counter) in inputs" :key="counter">
+                <div class="field has-addons" v-for="(input, counter) in inputs" :key="input.id">
                     <div class="control is-expanded">
                         <Input
                             type="text"
                             :placeholder="title"
-                            @model="input.value"
+                            @model="getInputValue(counter, ...arguments)"
                             required
                         />
                     </div>
-                    <div class="control">
-                        <Button icon="plus" type="outlined" :fullWidth="false" :event="addInput" />
+                    <div class="control" v-if="counter === 0">
+                        <Button icon="plus" :fullWidth="false" :event="addInput" />
                     </div>
-                    <div class="control">
+                    <div class="control" v-if="counter !== 0">
                         <Button icon="times" type="outlined" :fullWidth="false" :event="() => { removeInput(counter) }" />
                     </div>
                 </div>
@@ -37,7 +25,7 @@
             </div>
             <div class="is-flex is-justify-content-flex-end mt-5">
                 <div>
-                    <Button icon="check" type="outlined" :fullWidth="false" :event="sendValues"/>
+                    <Button icon="check" :fullWidth="false" :event="sendValues"/>
                 </div>
             </div>
         </form>
@@ -69,13 +57,13 @@ export default {
     },
 
     data() {
-        return { inputs: [] }
+        return { inputs: [{ value: '', id: this.getId() }] }
     },
 
     methods: {
-        addInput(event) {
+        addInput() {
             event.preventDefault()
-            this.inputs.push({ value: '' })
+            this.inputs.push({ value: '', id: this.getId() })
         },
 
         removeInput(counter) {
@@ -87,9 +75,17 @@ export default {
             return this.inputs.length > 0
         },
 
-        sendValues(event) {
+        sendValues() {
             event.preventDefault()
-            console.log(this.inputs)
+        },
+
+        getInputValue(counter, value) {
+            const { id } = this.inputs[counter]
+            this.inputs[counter] = { value, id }
+        },
+
+        getId() {
+            return Math.floor(Math.random() * 100)
         }
     }
 }

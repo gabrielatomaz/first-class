@@ -1,8 +1,13 @@
 <template>
     <div>
+        <AddModal 
+            title="Add a new level"
+            :close="showAddModal" 
+            v-if="isAddModalActive" 
+        />
         <div class="columns">
             <div class="column mt-5">
-                <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" />
+                <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" :event="showAddModal" />
             </div>
         </div>
         <div class="columns">
@@ -17,6 +22,7 @@
 
 <script>
 import { Card } from '../../../components/subjects'
+import { AddModal } from '../../../components/subjects/shared'
 import Button from '../../../components/shared/Button'
 
 export default {
@@ -25,6 +31,7 @@ export default {
     components: { 
         Card,
         Button,
+        AddModal,
     },
 
     data() {
@@ -37,8 +44,14 @@ export default {
                 { title: 'Jedi', progress: 0, path: 'jedi' },
             ],
             subject: this.$route.params.subject,
+            isAddModalActive: false,
+        }
+    },
+
+    methods: {
+        showAddModal() {
+            this.isAddModalActive = !this.isAddModalActive
         }
     }
-
 }
 </script>

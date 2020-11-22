@@ -3,7 +3,8 @@
         <AddModal 
             title="Add a new subject"
             :close="showAddModal" 
-            v-if="isAddModalActive" />
+            v-if="isAddModalActive" 
+        />
         <div class="columns">
             <div class="column mt-5">
                 <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" :event="showAddModal" />
