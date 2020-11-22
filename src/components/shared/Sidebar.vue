@@ -18,13 +18,13 @@
                 <router-link  class="has-text-info" to="/profile"> {{ user.name }} </router-link>
             </div>
             <div  class="mt-4 has-text-centered ml-2">
-                <Button text="Assigned subjects" type="outlined" :event="() => { goTo('/subjects') }" />
+                <Button text="Subjects" type="outlined" :event="() => { goTo('/subjects') }" />
             </div>
             <div  class="mt-4 has-text-centered ml-2">
-                <Button text="My badges" type="outlined" :event="() => { goTo('/badges') }" />
+                <Button text="Badges" type="outlined" :event="() => { goTo('/badges') }" />
             </div>
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
-                <Button text="My students" type="outlined" :event="() => goTo('/students')" />
+                <Button text="Students" type="outlined" :event="() => goTo('/students')" />
             </div>
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
                 <Button icon="sign-out-alt" type="outlined" :event="() => { goTo('/logout') }" />

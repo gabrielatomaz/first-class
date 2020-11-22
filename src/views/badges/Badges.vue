@@ -52,10 +52,60 @@ export default {
                     },
                 ]},
                 { title: 'CAD', badges: [] },
-                { title: 'Drive Team', badges: [] },
+                { title: 'Drive Team', badges: [
+                    { 
+                        type: 'certificate', 
+                        color: 'danger-dark', 
+                        level: {
+                            type: 'training',
+                            text: 'Training',
+                        },
+                    },
+                    { 
+                        type: 'medal', 
+                        color: 'warning-dark', 
+                        level: {
+                            type: 'level-i',
+                            text: 'Level I',
+                        },
+                    },
+                    { 
+                        type: 'medal', 
+                        color: 'grey-light', 
+                        level: {
+                            type: 'level-ii',
+                            text: 'Level II',
+                        },
+                    },
+                    { 
+                        type: 'medal', 
+                        color: 'warning', 
+                        level: {
+                            type: 'level-iii',
+                            text: 'Level III',
+                        },
+                    },
+                ]},
                 { title: 'Electrical', badges: [] },
                 { title: 'Mechanics', badges: [] },
-                { title: 'Pneumatics', badges: [] },
+                { title: 'Pneumatics', badges: [
+                    { 
+                        type: 'certificate', 
+                        color: 'danger-dark', 
+                        level: {
+                            type: 'training',
+                            text: 'Training',
+                        },
+                    },
+                    { 
+                        type: 'medal', 
+                        color: 'warning-dark', 
+                        level: {
+                            type: 'level-i',
+                            text: 'Level I',
+                        },
+                    },
+                ]},
                 { title: 'Programming', badges: [
                     { 
                         type: 'certificate', 
