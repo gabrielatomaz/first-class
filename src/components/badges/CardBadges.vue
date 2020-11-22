@@ -11,16 +11,18 @@
                 v-if="hasBadges()"
             />
         </div>
-        <div v-if="showBadges">
-            <nav class="level">
-                <div class="level-item has-text-centered mt-4" v-for="badge in badges" :key="badge">
-                    <div>
-                        <Badge :badge="badge.type" :color="badge.color" />
-                        <p class="title is-6 mt-3">{{ badge.level.text }}</p>
-                    </div>
+            <transition name="fade">
+                <div v-if="showBadges">
+                    <nav class="level">
+                        <div class="level-item has-text-centered mt-4" v-for="badge in badges" :key="badge">
+                            <div>
+                                <Badge :badge="badge.type" :color="badge.color" />
+                                <p class="title is-6 mt-3">{{ badge.level.text }}</p>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
-        </div>
+            </transition>
     </Card>
 </template>
 
@@ -65,6 +67,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+  opacity: 0;
+}
 </style>
