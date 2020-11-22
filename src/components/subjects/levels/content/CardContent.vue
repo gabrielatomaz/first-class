@@ -4,6 +4,7 @@
         <div class="is-pulled-right">
             <Button color="white" :fullWidth="false"  icon="eye" :iconColor="iconColor()" :event="setWatched"/>
             <Button color="white" :fullWidth="false"  icon="question-circle" iconColor="has-text-grey-light"/>
+            <Button color="white" :fullWidth="false"  icon="trash" iconColor="has-text-grey-light"/>
         </div>
     </Card>
 </template>

@@ -18,13 +18,16 @@
                 <router-link  class="has-text-info" to="/profile"> {{ user.name }} </router-link>
             </div>
             <div  class="mt-4 has-text-centered ml-2">
-                <Button text="My badges" type="outlined" :event="goToBages" />
+                <Button text="Assigned subjects" type="outlined" :event="() => { goTo('/subjects') }" />
+            </div>
+            <div  class="mt-4 has-text-centered ml-2">
+                <Button text="My badges" type="outlined" :event="() => { goTo('/badges') }" />
             </div>
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
-                <Button text="My students" type="outlined" :event="goToStudents" />
+                <Button text="My students" type="outlined" :event="() => goTo('/students')" />
             </div>
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
-                <Button icon="sign-out-alt" type="outlined" :event="logout" />
+                <Button icon="sign-out-alt" type="outlined" :event="() => { goTo('/logout') }" />
             </div>
         </div>
         <div class="column is-8 mt-2 mr-0 mb-2 ml-5">
@@ -51,25 +54,16 @@ export default {
     },
     
     methods: {
-        goToBages() {
-            this.goTo('/badges')
-        },
-
-        goToStudents() {
-            this.goTo('/students')
-        },
-
         goTo(route) {
-            this.$router.push(route)
+            event.preventDefault()
+
+            if (this.$route.path === route) return
+            else this.$router.push(route)
         },
         
         goBack() {
             this.$router.go(-1)
         },
-
-        logout() {
-            this.goTo('/logout')
-        }
     },
 }
 </script>

@@ -1,4 +1,4 @@
-import { Login, Register, Subjects, Content, Levels } from '../views'
+import { Login, Register, Subjects, Content, Levels, Badges } from '../views'
 import { Sidebar } from '../components/shared'
 
 export default {
@@ -25,7 +25,7 @@ export default {
             children: [
                 { 
                     path: 'subjects', 
-                    component: Subjects
+                    component: Subjects,
                 },
                 {
                     path: 'subjects/:subject',
@@ -34,6 +34,10 @@ export default {
                 {
                     path: 'subjects/:subject/:level',
                     component: Content,
+                },
+                {
+                    path: 'badges',
+                    component: Badges,
                 }
             ]
         },
