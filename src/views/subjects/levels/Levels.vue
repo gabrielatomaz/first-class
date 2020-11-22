@@ -3,6 +3,7 @@
         <AddModal 
             title="Add a new level"
             :close="showAddModal" 
+            @close="showAddModal"
             v-if="isAddModalActive" 
         />
         <div class="columns">

@@ -77,6 +77,7 @@ export default {
 
         sendValues() {
             event.preventDefault()
+            this.$emit('close')
         },
 
         getInputValue(counter, value) {

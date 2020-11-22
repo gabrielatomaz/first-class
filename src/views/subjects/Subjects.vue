@@ -2,7 +2,8 @@
     <div>
         <AddModal 
             title="Add a new subject"
-            :close="showAddModal" 
+            :close="showAddModal"
+            @close="showAddModal" 
             v-if="isAddModalActive" 
         />
         <div class="columns">
