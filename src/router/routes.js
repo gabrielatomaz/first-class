@@ -1,4 +1,13 @@
-import { Login, Register, Subjects, Content, Levels, Badges } from '../views'
+import { 
+    Login, 
+    Register, 
+    Subjects, 
+    Content, 
+    Levels, 
+    Badges,
+    Students,
+    Profile,
+} from '../views'
 import { Sidebar } from '../components/shared'
 
 export default {
@@ -38,6 +47,14 @@ export default {
                 {
                     path: 'badges',
                     component: Badges,
+                },
+                {
+                    path: 'students',
+                    component: Students,
+                },
+                {
+                    path: 'Profile',
+                    component: Profile,
                 }
             ]
         },

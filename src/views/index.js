@@ -4,6 +4,8 @@ import Subjects from './subjects/Subjects.vue'
 import Levels from './subjects/levels/Levels.vue'
 import Content from './subjects/levels/content/Content.vue'
 import Badges from './badges/Badges.vue'
+import Students from './students/Students.vue'
+import Profile from './profile/Profile.vue'
 
 export {
     Login,
@@ -12,4 +14,6 @@ export {
     Levels,
     Content,
     Badges,
+    Students,
+    Profile,
 }
