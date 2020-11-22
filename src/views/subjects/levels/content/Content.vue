@@ -1,7 +1,7 @@
 <template>
     <div>
         <AddModal 
-            title="Add a new level"
+            title="Add a new content"
             :close="showAddModal" 
             @close="showAddModal"
             v-if="isAddModalActive" 
@@ -14,7 +14,10 @@
         <div class="columns">
             <div class="column">
                 <div v-for="content in contents" :key="content.title">
-                    <Card :title="content.title" :watched="content.watched" />
+                    <CardContent 
+                        :title="content.title" 
+                        :watched="content.watched" 
+                    />
                 </div>
             </div>
         </div>
@@ -22,7 +25,7 @@
 </template>
 
 <script>
-import { Card } from '../../../../components/subjects'
+import { CardContent } from '../../../../components/subjects/levels/content'
 import { AddModal } from '../../../../components/subjects/shared'
 import Button from '../../../../components/shared/Button'
 
@@ -30,9 +33,9 @@ export default {
     name: 'Content',
 
     components: { 
-        Card,
         Button,
         AddModal,
+        CardContent,
     },
 
     data() {

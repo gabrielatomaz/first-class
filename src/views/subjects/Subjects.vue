@@ -14,7 +14,11 @@
         <div class="columns">
             <div class="column">
                 <div v-for="subject in subjects" :key="subject.title">
-                    <Card :title="subject.title" :progress="subject.progress" :path="`class/${subject.path}`" />
+                    <CardProgress 
+                        :title="subject.title" 
+                        :progress="subject.progress" 
+                        :path="`class/${subject.path}`" 
+                    />
                 </div>
             </div>
         </div>
@@ -22,17 +26,16 @@
 </template>
 
 <script>
-import { Card } from '../../components/subjects'
-import { AddModal } from '../../components/subjects/shared'
+import { AddModal, CardProgress } from '../../components/subjects/shared'
 import Button from '../../components/shared/Button'
 
 export default {
     name: 'Subjects',
 
-    components: { 
-        Card,
+    components: {
         Button,
         AddModal,
+        CardProgress,
     },
 
     data() {

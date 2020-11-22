@@ -4,6 +4,7 @@ import Button from './Button'
 import Modal from './Modal'
 import Input from './Input'
 import Logo from './Logo'
+import Card from './Card'
 
 export {
     Dropdown,
@@ -12,4 +13,5 @@ export {
     Modal,
     Input,
     Logo,
+    Card,
 }

@@ -1,3 +1,7 @@
 import AddModal from './AddModal'
+import CardProgress from './CardProgress'
 
-export { AddModal }
+export { 
+    AddModal,
+    CardProgress,
+}
