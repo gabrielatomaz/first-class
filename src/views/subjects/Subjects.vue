@@ -17,7 +17,7 @@
                     <CardProgress 
                         :title="subject.title" 
                         :progress="subject.progress" 
-                        :path="`class/${subject.path}`" 
+                        :path="`subjects/${subject.path}`" 
                     />
                 </div>
             </div>

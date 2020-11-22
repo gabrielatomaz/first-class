@@ -23,6 +23,9 @@
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
                 <Button text="My students" type="outlined" :event="goToStudents" />
             </div>
+            <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
+                <Button icon="sign-out-alt" type="outlined" :event="logout" />
+            </div>
         </div>
         <div class="column is-8 mt-2 mr-0 mb-2 ml-5">
             <router-view :key="$route.path" />
@@ -62,6 +65,10 @@ export default {
         
         goBack() {
             this.$router.go(-1)
+        },
+
+        logout() {
+            this.goTo('/logout')
         }
     },
 }

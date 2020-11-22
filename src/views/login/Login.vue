@@ -48,7 +48,7 @@ export default {
 
     methods: {
         login(event) {
-            this.$router.push('/class')
+            this.$router.push('/subjects')
             event.preventDefault();
             return
         },
