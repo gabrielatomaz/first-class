@@ -170,11 +170,10 @@ export default {
         },
 
         isFieldsValid() {
-            [this.name, this.email,
-            this.confirmEmail, this.teamNumber,
-            this.phone, this.password, 
-            this.confirmPassword, this.address,
-            this.country, this.gender].map(prop => { 
+            const inputs =  [this.name, this.email, this.confirmEmail, this.teamNumber, this.phone,
+                this.password, this.confirmPassword, this.address, this.country, this.gender]
+
+           inputs.map(prop => { 
                 if (!prop.value) { 
                     prop.errorClass = 'danger'
 
