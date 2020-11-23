@@ -14,13 +14,13 @@
                             type="text"
                             placeholder="Email"
                             icon="envelope"
-                            @model="setEmail"
+                            v-model="email"
                         />
                         <Input
                             type="password"
                             placeholder="Password"
                             icon="lock"
-                            @model="setPassowrd"
+                            v-model="password"
                         />
                         <Button 
                             class="mt-2"
@@ -67,14 +67,6 @@ export default {
 
             if (!this.email || !this.password) this.showErrorMessage = true
             else this.$router.push('/subjects')
-        },
-
-        setEmail(email) {
-            this.email = email
-        },
-
-        setPassowrd(password) {
-            this.password = password
         },
 
         closeErrorMessage() {

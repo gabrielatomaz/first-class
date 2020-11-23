@@ -18,8 +18,9 @@
                                 type="text"
                                 placeholder="Full name"
                                 icon="user"
-                                @model="setName"
+                                v-model="name.value"
                                 :color="name.errorClass"
+                                @change="hasChange(name)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -27,15 +28,17 @@
                                 type="email"
                                 placeholder="Email"
                                 icon="envelope"
-                                @model="setEmail"
+                                v-model="email.value"
                                 :color="email.errorClass"
+                                @change="hasChange(email)"
                             />
                             <Input
                                 type="email"
                                 placeholder="Confirm email"
                                 icon="envelope"
-                                @model="setConfirmEmail"
+                                v-model="confirmEmail.value"
                                 :color="confirmEmail.errorClass"
+                                @change="hasChange(confirmEmail)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -43,8 +46,9 @@
                                 type="number"
                                 placeholder="Team number"
                                 icon="users"
-                                @model="setTeamNumber"
+                                v-model="teamNumber.value"
                                 :color="teamNumber.errorClass"
+                                @change="hasChange(teamNumber)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -52,8 +56,9 @@
                                 type="phone"
                                 placeholder="Phone"
                                 icon="phone"
-                                @model="setPhone"
+                                v-model="phone.value"
                                 :color="phone.errorClass"
+                                @change="hasChange(phone)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -61,15 +66,17 @@
                                 type="password"
                                 placeholder="Password"
                                 icon="lock"
-                                @model="setPassword"
+                                v-model="password.value"
                                 :color="password.errorClass"
+                                @change="hasChange(password)"
                             />
                             <Input
                                 type="password"
                                 placeholder="Confirm password"
                                 icon="lock"
-                                @model="setConfirmPassword"
+                                v-model="confirmPassword.value"
                                 :color="confirmPassword.errorClass"
+                                @change="hasChange(confirmPassword)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -77,15 +84,17 @@
                                 type="text"
                                 placeholder="Address"
                                 icon="map-marker-alt"
-                                @model="setAddress"
+                                v-model="address.value"
                                 :color="address.errorClass"
+                                @change="hasChange(address)"
                             />
                             <Input
                                 type="text"
                                 placeholder="Country"
                                 icon="globe-americas"
-                                @model="setCountry"
+                                v-model="country.value"
                                 :color="country.errorClass"
+                                @change="hasChange(country)"
                             />
                         </div>
                         <div class="field-body mt-2">
@@ -146,62 +155,19 @@ export default {
     methods: {
         register() {
             if (this.isFieldsValid()) this.$router.push('/subjects')
-
-            return
         },
 
         closeErrorMessage() {
             this.showErrorMessage = false
         },
 
-        setName(name) {
-            this.name.value = name
-            this.name.errorClass = ''
-        },
-
-        setEmail(email) {
-            this.email.value = email
-            this.email.errorClass = ''
-        },
-
-        setConfirmEmail(email) {
-            this.confirmEmail.value = email
-            this.confirmEmail.errorClass = ''
-        },
-
-        setTeamNumber(number) {
-            this.teamNumber.value = number
-            this.teamNumber.errorClass = ''
-        },
-
-        setPhone(phone) {
-            this.phone.value = phone
-            this.phone.errorClass = ''
-        },
-
-        setPassword(password) {
-            this.password.value = password
-            this.password.errorClass = ''
-        },
-
-        setConfirmPassword(password) {
-            this.confirmPassword.value = password
-            this.confirmPassword.errorClass = ''
-        },
-
-        setAddress(address) {
-            this.address.value = address
-            this.address.errorClass = ''
-        },
-
-        setCountry(country) {
-            this.country.value = country
-            this.country.errorClass = ''
-        },
-
         setGender(gender) {
             this.gender.value = gender
             this.gender.errorClass = ''
+        },
+
+        hasChange(prop) {
+            prop.errorClass = ''
         },
 
         isFieldsValid() {

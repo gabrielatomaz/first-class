@@ -4,8 +4,9 @@
     <input 
       :class="['input', `is-${color ? color : 'info'}`]" 
       :type="type" 
+      :value="value"
       :placeholder="placeholder" 
-      v-model="model" 
+      @input="$emit('input', $event.target.value)" 
       @change="emitValue" 
     />
     <span class="icon is-small is-left" v-if="hasIcon()" v-html="displayIcon()"></span>
@@ -22,19 +23,19 @@ export default {
       type: String,
       required: true,
     },
-
     placeholder: {
       type: String,
       required: true,
     },
-
     color: {
       type: String,
       default: 'info',
     },
-
     icon: {
       type: String,
+    },
+    value: {
+      type: [String, Number],
     }
   },
 
@@ -52,7 +53,7 @@ export default {
     },
 
     emitValue() {
-      this.$emit('model', this.model)
+      this.$emit('change', this.value)
     },
 
   },
