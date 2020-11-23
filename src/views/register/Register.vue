@@ -8,7 +8,7 @@
                 <div class="column is-10-desktop is-8-tablet is-8-mobile">
                     <Logo />
                     <ErrorMessage 
-                        message="Please, fill the highlighted field."
+                        message="Please, fill the highlighted field(s)."
                         @close="closeErrorMessage"
                         v-if="showErrorMessage"
                     />
