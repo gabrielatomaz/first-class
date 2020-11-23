@@ -148,7 +148,10 @@ export default {
             country: { value: '', errorClass: '' },
             gender: { value: '', errorClass: '' },
             dropdownOptions: [
-                { text: 'Male'}, { text: 'Female' }, { text: 'Non-binary' }, { text: 'Other' }
+                { text: 'Female' }, 
+                { text: 'Male'},
+                { text: 'Non-binary' },
+                { text: 'Other' },
             ],
         }
     },
@@ -194,7 +197,7 @@ export default {
                 }
             
             return true
-        }
+        },
     },
     
 }
