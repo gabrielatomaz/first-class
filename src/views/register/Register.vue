@@ -101,8 +101,9 @@
                             <Dropdown 
                                 :options="dropdownOptions" 
                                 placeholder="Select gender"
-                                @model="setGender"
+                                v-model="gender.value"
                                 :color="gender.errorClass" 
+                                @change="hasChange(gender)"
                             />
                         </div>
                         <Button 
@@ -159,11 +160,6 @@ export default {
 
         closeErrorMessage() {
             this.showErrorMessage = false
-        },
-
-        setGender(gender) {
-            this.gender.value = gender
-            this.gender.errorClass = ''
         },
 
         hasChange(prop) {
