@@ -170,33 +170,19 @@ export default {
         },
 
         isFieldsValid() {
-            if (!this.name.value) this.name.errorClass = 'danger'
-            if (!this.email.value) this.email.errorClass = 'danger'
-            if (!this.confirmEmail.value) this.confirmEmail.errorClass = 'danger'
-            if (!this.teamNumber.value) this.teamNumber.errorClass = 'danger'
-            if (!this.phone.value) this.phone.errorClass = 'danger'
-            if (!this.password.value) this.password.errorClass = 'danger'
-            if (!this.confirmPassword.value) this.confirmPassword.errorClass = 'danger'
-            if (!this.address.value) this.address.errorClass = 'danger'
-            if (!this.country.value) this.country.errorClass = 'danger'
-            if (!this.gender.value) this.gender.errorClass = 'danger'
+            [this.name, this.email,
+            this.confirmEmail, this.teamNumber,
+            this.phone, this.password, 
+            this.confirmPassword, this.address,
+            this.country, this.gender].map(prop => { 
+                if (!prop.value) { 
+                    prop.errorClass = 'danger'
 
-            if (!this.name.value ||
-                !this.email.value ||
-                !this.confirmEmail.value ||
-                !this.teamNumber.value ||
-                !this.phone.value ||
-                !this.password.value ||
-                !this.confirmPassword.value ||
-                !this.address.value ||
-                !this.country.value ||
-                !this.gender.value ) { 
                     this.showErrorMessage = true
+                } else this.showErrorMessage = false
+            })
 
-                    return false
-                }
-            
-            return true
+            return !this.showErrorMessage
         },
     },
     
