@@ -61,3 +61,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media screen and (max-width: 1023px){
+    .column.mt-5 {
+        margin-bottom: 10% !important;
+    }
+}
+</style>
