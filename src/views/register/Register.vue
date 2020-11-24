@@ -172,17 +172,25 @@ export default {
         isFieldsValid() {
             const inputs =  [this.name, this.email, this.confirmEmail, this.teamNumber, this.phone,
                 this.password, this.confirmPassword, this.address, this.country, this.gender]
-
-           inputs.map(prop => { 
+            
+            inputs.map(prop => { 
                 if (!prop.value) { 
-                    prop.errorClass = 'danger'
-
+                    prop.errorClass = 'danger' 
+                    
                     this.showErrorMessage = true
-                } else this.showErrorMessage = false
+                }
             })
+
+            const allFieldsAreFilled = inputs.every(this.allFieldsAreFilled)
+
+            this.showErrorMessage = !allFieldsAreFilled
 
             return !this.showErrorMessage
         },
+
+        allFieldsAreFilled(prop) {
+            return prop.value
+        }
     },
     
 }
