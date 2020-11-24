@@ -181,16 +181,12 @@ export default {
                 }
             })
 
-            const allFieldsAreFilled = inputs.every(this.allFieldsAreFilled)
+            const allFieldsAreFilled = inputs.every((prop) => prop.value)
 
             this.showErrorMessage = !allFieldsAreFilled
 
             return !this.showErrorMessage
         },
-
-        allFieldsAreFilled(prop) {
-            return prop.value
-        }
     },
     
 }
