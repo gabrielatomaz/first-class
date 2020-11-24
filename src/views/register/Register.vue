@@ -185,7 +185,7 @@ export default {
 
             this.showErrorMessage = !allFieldsAreFilled
 
-            return !this.showErrorMessage
+            return allFieldsAreFilled
         },
     },
     
