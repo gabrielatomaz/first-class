@@ -1,62 +1,32 @@
-import { 
-    Login, 
-    Register, 
-    Subjects, 
-    Content, 
-    Levels, 
-    Badges,
-    Students,
-    Profile,
-} from '../views'
 import { Sidebar } from '../components/shared'
+import loginRoutes from './login/routes'
+import registerRoutes from './register/routes'
+import subjectsRoutes from './subjects/routes'
+import levelsRoutes from './subjects/levels/routes'
+import contentRoutes from './subjects/levels/content/routes'
+import badgesRoutes from './badges/routes'
+import studentsRoutes from './students/routes'
+import profileRoutes from './profile/routes'
 
 export default {
     routes: [
         {
-            path: '/',
-            redirect: '/login',
-        },
-        {
-            path: '/login',
-            component: Login,
-        },
-        {
-            path: '/logout',
-            component: Login,
-        },
-        {
-            path: '/register',
-            component: Register,
-        },
-        {
             path: '',
             component: Sidebar,
             children: [
-                { 
-                    path: 'subjects', 
-                    component: Subjects,
-                },
-                {
-                    path: 'subjects/:subject',
-                    component: Levels,
-                },
-                {
-                    path: 'subjects/:subject/:level',
-                    component: Content,
-                },
-                {
-                    path: 'badges',
-                    component: Badges,
-                },
-                {
-                    path: 'students',
-                    component: Students,
-                },
-                {
-                    path: 'Profile',
-                    component: Profile,
-                }
+                subjectsRoutes,
+                levelsRoutes,
+                contentRoutes,
+                badgesRoutes,
+                studentsRoutes,
+                profileRoutes,
             ]
+        },
+        loginRoutes,
+        registerRoutes,
+        {
+            path: '/',
+            redirect: '/login',
         },
     ]
 }
