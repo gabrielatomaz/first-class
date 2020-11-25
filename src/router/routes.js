@@ -9,6 +9,8 @@ import studentsRoutes from './students/routes'
 import profileRoutes from './profile/routes'
 
 export default {
+    mode: 'history',
+    base: process.env.BASE_URL,
     routes: [
         {
             path: '',
