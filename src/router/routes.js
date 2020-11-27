@@ -13,6 +13,10 @@ export default {
     base: process.env.BASE_URL,
     routes: [
         {
+            path: '/',
+            redirect: '/login',
+        },
+        {
             path: '',
             component: Sidebar,
             children: [
@@ -26,9 +30,5 @@ export default {
         },
         loginRoutes,
         registerRoutes,
-        {
-            path: '/',
-            redirect: '/login',
-        },
     ]
 }
