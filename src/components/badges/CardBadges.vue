@@ -16,12 +16,12 @@
                 <nav class="level">
                     <div 
                         class="level-item has-text-centered mt-4" 
-                        v-for="badge in badges" 
-                        :key="`${badge.type}-${badge.color}`"
+                        v-for="level in mapLevels()" 
+                        :key="`${level.badge.type}-${level.badge.color}`"
                     >
                         <div>
-                            <Badge :badge="badge.type" :color="badge.color" />
-                            <p class="title is-6 mt-3">{{ badge.level.text }}</p>
+                            <Badge :badge="level.badge.type" :color="level.badge.color" />
+                            <p class="title is-6 mt-3">{{ level.text }}</p>
                         </div>
                     </div>
                 </nav>
@@ -48,19 +48,26 @@ export default {
             type: String,
             required: true,
         },
-        badges: {
+        levels: {
             type: Array,
             required: true,
         }
     },
 
     data() {
-        return { showBadges: false }
+        return { 
+            showBadges: false,
+            badges: null,
+        }
     },
-
+    
     methods: {
         hasBadges() {
-            return this.badges.length > 0
+            return !this.levels.every(level => !level.badge)
+        },
+
+        mapLevels() {
+            return this.levels.filter(({ badge }) => badge)
         },
 
         toggleBadges() {

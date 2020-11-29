@@ -27,6 +27,9 @@
                 <Button text="Students" type="outlined" :event="() => goTo('/students')" />
             </div>
             <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
+                <Button text="Mentors" type="outlined" :event="() => goTo('/mentors')" />
+            </div>
+            <div class="mt-4 has-text-centered ml-2" v-if="user.mentor">
                 <Button icon="sign-out-alt" type="outlined" :event="() => { goTo('/logout') }" />
             </div>
         </div>

@@ -1,6 +1,16 @@
-import { Students } from '../../views'
+import { Students, Student } from '../../views'
 
-export default {
+const studentsRoutes = {
     path: 'students',
     component: Students,
+}
+
+const studentRoutes = {
+    path: 'students/:id',
+    component: Student,
+}
+
+export {
+    studentsRoutes,
+    studentRoutes,
 }

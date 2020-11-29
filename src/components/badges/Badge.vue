@@ -1,5 +1,5 @@
 <template>
-  <i :class="`fas fa-${badge} fa-5x has-text-${color}`"></i>
+  <i :class="`fas fa-${badge} fa-${size}x has-text-${color}`"></i>
 </template>
 
 <script>
@@ -14,6 +14,10 @@ export default {
         color: {
             type: String,
             required: true,
+        },
+        size: {
+            type: Number,
+            default: 5,
         }
     }
 

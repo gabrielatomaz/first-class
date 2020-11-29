@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="subject in subjects" :key="subject.title">
-            <CardBadges :subject="subject.title" :badges="subject.badges" />
+            <CardBadges :subject="subject.title" :levels="subject.levels" />
         </div>
     </div>
 </template>
@@ -17,130 +17,94 @@ export default {
     data() {
         return {
             subjects: [    
-                { title: 'Awards', badges: [
-                    { 
-                        type: 'certificate', 
-                        color: 'danger-dark', 
-                        level: {
-                            type: 'training',
-                            text: 'Training',
+                { title: 'Awards', levels: [
+                        { 
+                            path: 'training',
+                            title: 'Training',
+                            badge: {
+                                type: 'certificate', 
+                                color: 'danger-dark', 
+                            },
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning-dark', 
-                        level: {
-                            type: 'level-i',
-                            text: 'Level I',
+                        { 
+                            path: 'level-i',
+                            title: 'Level I',
+                            badge: {
+                                type: 'medal', 
+                                color: 'warning-dark', 
+                            },
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'grey-light', 
-                        level: {
-                            type: 'level-ii',
+                        { 
+                            path: 'level-ii',
+                            text: 'Level II',
+                            badge: {
+                                type: 'medal', 
+                                color: 'grey-light', 
+                            },
+                        },
+                        {
+                            path: 'level-iii',
+                            title: 'Level III',
+                            badge: {
+                                type: 'medal', 
+                                color: 'warning', 
+                            }
+                        },
+                    ]
+                },
+                { 
+                    title: 'CAD',
+                    levels: [
+                        { 
+                            path: 'training',
+                            title: 'Training',
+                        },
+                        { 
+                            path: 'level-i',
+                            title: 'Level I',
+                            badge: {
+                                type: 'medal', 
+                                color: 'warning-dark', 
+                            },
+                        },
+                        { 
+                            path: 'level-ii',
                             text: 'Level II',
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning', 
-                        level: {
-                            type: 'level-iii',
-                            text: 'Level III',
+                        {
+                            path: 'level-iii',
+                            title: 'Level III',
+                            badge: {
+                                type: 'medal', 
+                                color: 'warning', 
+                            }
                         },
-                    },
-                ]},
-                { title: 'CAD', badges: [] },
-                { title: 'Drive Team', badges: [
+                    ] 
+                },
+                { title: 'Drive Team', levels: [
                     { 
-                        type: 'certificate', 
-                        color: 'danger-dark', 
-                        level: {
-                            type: 'training',
-                            text: 'Training',
+                            path: 'training',
+                            title: 'Training',
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning-dark', 
-                        level: {
-                            type: 'level-i',
-                            text: 'Level I',
+                        { 
+                            path: 'level-i',
+                            title: 'Level I',
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'grey-light', 
-                        level: {
-                            type: 'level-ii',
+                        { 
+                            path: 'level-ii',
                             text: 'Level II',
                         },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning', 
-                        level: {
-                            type: 'level-iii',
-                            text: 'Level III',
+                        {
+                            path: 'level-iii',
+                            title: 'Level III',
                         },
-                    },
-                ]},
-                { title: 'Electrical', badges: [] },
-                { title: 'Mechanics', badges: [] },
-                { title: 'Pneumatics', badges: [
-                    { 
-                        type: 'certificate', 
-                        color: 'danger-dark', 
-                        level: {
-                            type: 'training',
-                            text: 'Training',
-                        },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning-dark', 
-                        level: {
-                            type: 'level-i',
-                            text: 'Level I',
-                        },
-                    },
-                ]},
-                { title: 'Programming', badges: [
-                    { 
-                        type: 'certificate', 
-                        color: 'danger-dark', 
-                        level: {
-                            type: 'training',
-                            text: 'Training',
-                        },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning-dark', 
-                        level: {
-                            type: 'level-i',
-                            text: 'Level I',
-                        },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'grey-light', 
-                        level: {
-                            type: 'level-ii',
-                            text: 'Level II',
-                        },
-                    },
-                    { 
-                        type: 'medal', 
-                        color: 'warning', 
-                        level: {
-                            type: 'level-iii',
-                            text: 'Level III',
-                        },
-                    },
-                ]},
-                { title: 'Strategy', badges: [] },
+                    ] 
+                },
+                { title: 'Electrical', levels: [] },
+                { title: 'Mechanics', levels: [] },
+                { title: 'Pneumatics', levels: [] },
+                { title: 'Programming', levels: [] },
+                { title: 'Strategy', levels: [] },
             ],
         }
     },

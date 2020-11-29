@@ -5,8 +5,9 @@ import subjectsRoutes from './subjects/routes'
 import levelsRoutes from './subjects/levels/routes'
 import contentRoutes from './subjects/levels/content/routes'
 import badgesRoutes from './badges/routes'
-import studentsRoutes from './students/routes'
+import { studentsRoutes, studentRoutes } from './students/routes'
 import profileRoutes from './profile/routes'
+import mentorsRoutes from './mentors/routes'
 
 export default {
     mode: 'history',
@@ -25,7 +26,9 @@ export default {
                 contentRoutes,
                 badgesRoutes,
                 studentsRoutes,
+                studentRoutes,
                 profileRoutes,
+                mentorsRoutes,
             ]
         },
         loginRoutes,
