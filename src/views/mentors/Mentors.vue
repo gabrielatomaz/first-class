@@ -5,7 +5,7 @@
                 <Search placeholder="Search by mentor name..." :list="mentors" @result="search" />
             </div>
         </div>
-        <div v-for="mentor in mentors" :key="mentor.id">
+        <div v-for="mentor in mentorsSearch" :key="mentor.id">
             <CardMentors :mentor="mentor" @remove="remove"/>
         </div>
         <ModalConfirm 
@@ -42,6 +42,7 @@ export default {
             ],
             modalConfirm:null,
             showModalConfirm: false,
+            mentorsSearch: [],
         }
     },
 
@@ -59,7 +60,7 @@ export default {
         },
 
         search(result) {
-            this.mentors = result
+            this.mentorsSearch = result
         }
     }
 }

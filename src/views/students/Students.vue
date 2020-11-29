@@ -5,7 +5,7 @@
                 <Search placeholder="Search by student name..." :list="students" @result="search" />
             </div>
         </div>
-        <div v-for="student in students" :key="student.id">
+        <div v-for="student in searchStudents" :key="student.id">
             <CardStudent :student="student" @remove="remove" @addMentor="addMentor" />
         </div>
         <ModalConfirm 
@@ -40,6 +40,7 @@ export default {
                 { id: 4, name: 'Luan' },
                 { id: 5, name: 'John' },
             ],
+            searchStudents: [],
             modalConfirm: null,
             showModalConfirm: false,
         }
@@ -67,7 +68,7 @@ export default {
         },
 
         search(result) {
-            this.students = result
+            this.searchStudents = result
         }
     }
 

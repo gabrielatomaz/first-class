@@ -1,13 +1,11 @@
 <template>
-    <div class="field has-addons">
-        <div class="control">
-            <input class="input is-info" type="text" :placeholder="placeholder" v-model="search">
-        </div>
-        <div class="control">
-            <a class="button is-info is-outlined" @click="find">
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input is-info" type="text" :placeholder="placeholder" v-model="search" @change="find">
+            <span class="icon is-small is-left">
                 <i class="fas fa-search"></i>
-            </a>
-        </div>
+            </span>
+        </p>
     </div>
 </template>
 
@@ -25,13 +23,17 @@ export default {
         }
     },
 
+    mounted() {
+        this.find()
+    },
+
     data() {
         return { search: '' }
     },
 
     methods: {
         find() {
-            const result = this.list.filter(({ name }) => name.includes(this.search))
+            const result = this.list.filter(({ name }) => name.toLowerCase().includes(this.search.toLowerCase()))
 
             this.$emit('result', result)
         }

@@ -19,16 +19,14 @@
                 <div class="columns">
                     <div class="column is-10 is-offset-1">
                         <div v-for="level in levels" :key="level.title" class="mt-5">
-                            <i class="fas fa-arrow-right has-text-grey-light mr-2"></i> <span class="title has-text-grey is-5"> {{ level.title }} </span>
+                            <i class="fas fa-arrow-right has-text-grey-light mr-2"></i> 
+                            <span class="title has-text-grey is-5"> {{ level.title }} </span>
                             <div class="is-pulled-right">
-                                <Button 
-                                    color="white" 
-                                    :fullWidth="false" 
-                                    :icon="!level.badge ? 'hand-holding-medical' : level.badge.type" 
-                                    :iconColor="!level.badge ? 'grey-light' : level.badge.color"
-                                    :event="() => { toggleBage(level.badge) }"
+                                <ButtonBadge 
+                                    :type="level.badge.type" 
+                                    :color="level.badge.color"
+                                    :badge="level.receiveBadge"
                                     class="ml-2 mb-1"
-                                    size="large"
                                 />
                             </div>
                             <progress class="progress is-grey mt-5" :value="level.progress" max="100" />
@@ -42,6 +40,7 @@
 
 <script>
 import { Card, Button } from '../shared'
+import { ButtonBadge } from '../badges'
 
 export default {
     name: 'CardStudentProgress',
@@ -49,6 +48,7 @@ export default {
     components: { 
         Card,
         Button,
+        ButtonBadge,
     },
 
     props: {
@@ -79,12 +79,8 @@ export default {
             this.showLevels = !this.showLevels
         },
 
-        addBadge() {
-            return
-        },
-
-        toggleBage() {
-            event.preventDefault()
+        getBadge(badge) {
+            return badge ? { icon: badge.type, color: badge.color } : { }
         }
     }
 }
