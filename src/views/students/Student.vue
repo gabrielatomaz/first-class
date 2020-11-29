@@ -39,7 +39,7 @@ export default {
                 subjects: [
                     { 
                         title: 'Awards',
-                        progress: 90, 
+                        progress: 75, 
                         levels: [
                             { 
                                 title: 'Training', 
@@ -81,7 +81,7 @@ export default {
                     },
                     { 
                         title: 'Drive Team', 
-                        progress: 70, 
+                        progress: 50, 
                         levels: [
                             { 
                                 title: 'Training', 
@@ -123,7 +123,7 @@ export default {
                     },
                     { 
                         title: 'Programming',
-                        progress: 95,
+                        progress: 50,
                         levels: [
                             { 
                                 title: 'Training', 
@@ -165,7 +165,7 @@ export default {
                     },
                     { 
                         title: 'Strategy', 
-                        progress: 85,
+                        progress: 100,
                         levels: [
                             { 
                                 title: 'Training', 

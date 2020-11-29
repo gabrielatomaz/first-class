@@ -1,9 +1,9 @@
 <template>
     <div>
         <ModalAdd 
-            title="Add a new subject"
-            :close="showModalAdd"
-            @close="showModalAdd" 
+            title="Add a new content"
+            :close="showModalAdd" 
+            @close="showModalAdd"
             v-if="isModalAddActive" 
         />
         <div class="columns is-mobile mt-3">
@@ -11,17 +11,16 @@
                 <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" :event="showModalAdd" />
             </div>
             <div class="column is-4">
-                <Search placeholder="Search by content title..." :list="subjects" @result="search" />
+                <Search placeholder="Search by content title..." :list="contents" @result="search" />
             </div>
         </div>
         <div class="columns">
             <div class="column">
-                <div v-for="subject in searchSubjects" :key="subject.title">
-                    <CardProgress 
-                        :title="subject.title" 
-                        :progress="subject.progress" 
-                        :path="`subjects/${subject.path}`"
-                        @remove="remove(subject)" 
+                <div v-for="content in searchContents" :key="content.title">
+                    <CardContent 
+                        :title="content.title" 
+                        :watched="content.watched" 
+                        @remove="remove(content)" 
                     />
                 </div>
             </div>
@@ -37,36 +36,33 @@
 </template>
 
 <script>
-import { ModalAdd, CardProgress } from '../../components/subjects/shared'
-import { Button, ModalConfirm, Search } from '../../components/shared'
+import { CardContent } from '../../../../components/subjects/levels/contents'
+import { ModalAdd } from '../../../../components/subjects/shared'
+import { Button, ModalConfirm, Search } from '../../../../components/shared'
 
 export default {
-    name: 'Subjects',
+    name: 'Contents',
 
-    components: {
+    components: { 
         Button,
         Search,
         ModalAdd,
-        CardProgress,
+        CardContent,
         ModalConfirm,
     },
 
     data() {
         return {
-            subjects: [    
-                { title: 'Awards', path: 'awards', progress: 35 },
-                { title: 'CAD', path: 'cad', progress: 50 },
-                { title: 'Drive Team', path: 'drive-team', progress: 40 },
-                { title: 'Electrical', path: 'electrical', progress: 100 },
-                { title: 'Mechanics', path: 'mechanics', progress: 0 },
-                { title: 'Pneumatics', path: 'pneumatics', progress: 0 },
-                { title: 'Programming', path: 'programming', progress: 10 },
-                { title: 'Strategy', path: 'strategy', progress: 0 },
+            contents: [
+                { title: 'O que é programação?', watched: true },
+                { title: 'O que é ensinado?', watched: false },
+                { title: 'Qual o mercado de trabalho?', watched: false },
+                { title: 'O que e possível fazer?', watched: false },
             ],
             isModalAddActive: false,
             showModalConfirm: false,
             modalConfirm: null,
-            searchSubjects: [],
+            searchContents: [],
         }
     },
 
@@ -75,11 +71,11 @@ export default {
             this.isModalAddActive = !this.isModalAddActive
         },
 
-        remove(subject){
+        remove(content){
             this.showModalConfirm = true
 
             this.modalConfirm = {
-                content: `Are you sure you want to delete the <b>"${subject.title}"</b> subject?`,
+                content: `Are you sure you want to delete the <b>"${content.title}"</b> content?`,
                 buttonConfirm: () => {}
             }
         },
@@ -87,9 +83,9 @@ export default {
         close() {
             this.showModalConfirm = false
         },
-        
+
         search(result) {
-            this.searchSubjects = result
+            this.searchContents = result
         }
     }
 }

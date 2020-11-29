@@ -33,7 +33,11 @@ export default {
 
     methods: {
         find() {
-            const result = this.list.filter(({ name }) => name.toLowerCase().includes(this.search.toLowerCase()))
+            const result = this.list.filter((item) => { 
+                if (item.name) return item.name.toLowerCase().includes(this.search.toLowerCase()) 
+
+                return item.title.toLowerCase().includes(this.search.toLowerCase()) 
+            })
 
             this.$emit('result', result)
         }

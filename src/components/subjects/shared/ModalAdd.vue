@@ -41,7 +41,7 @@
 import { Modal, Input, Button, ErrorMessage } from '../../shared'
 
 export default {
-    name: 'AddModal',
+    name: 'ModalAdd',
     
     components: {
         Modal,

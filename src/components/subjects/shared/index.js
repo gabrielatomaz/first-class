@@ -1,7 +1,7 @@
-import AddModal from './AddModal'
+import ModalAdd from './ModalAdd'
 import CardProgress from './CardProgress'
 
 export { 
-    AddModal,
+    ModalAdd,
     CardProgress,
 }
