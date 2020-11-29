@@ -20,7 +20,7 @@ export default {
                 { title: 'Awards', levels: [
                         { 
                             path: 'training',
-                            title: 'Training',
+                            text: 'Training',
                             badge: {
                                 type: 'certificate', 
                                 color: 'danger-dark', 
@@ -28,7 +28,7 @@ export default {
                         },
                         { 
                             path: 'level-i',
-                            title: 'Level I',
+                            text: 'Level I',
                             badge: {
                                 type: 'medal', 
                                 color: 'warning-dark', 
@@ -44,7 +44,7 @@ export default {
                         },
                         {
                             path: 'level-iii',
-                            title: 'Level III',
+                            text: 'Level III',
                             badge: {
                                 type: 'medal', 
                                 color: 'warning', 
@@ -57,11 +57,15 @@ export default {
                     levels: [
                         { 
                             path: 'training',
-                            title: 'Training',
+                            text: 'Training',
+                              badge: {
+                                type: 'certificate', 
+                                color: 'danger-dark', 
+                            },
                         },
                         { 
                             path: 'level-i',
-                            title: 'Level I',
+                            text: 'Level I',
                             badge: {
                                 type: 'medal', 
                                 color: 'warning-dark', 
@@ -73,22 +77,22 @@ export default {
                         },
                         {
                             path: 'level-iii',
-                            title: 'Level III',
-                            badge: {
-                                type: 'medal', 
-                                color: 'warning', 
-                            }
+                            text: 'Level III',
                         },
                     ] 
                 },
                 { title: 'Drive Team', levels: [
                     { 
                             path: 'training',
-                            title: 'Training',
+                            text: 'Training',
+                            badge: {
+                                type: 'certificate', 
+                                color: 'danger-dark', 
+                            },
                         },
                         { 
                             path: 'level-i',
-                            title: 'Level I',
+                            text: 'Level I',
                         },
                         { 
                             path: 'level-ii',
@@ -96,15 +100,10 @@ export default {
                         },
                         {
                             path: 'level-iii',
-                            title: 'Level III',
+                            text: 'Level III',
                         },
                     ] 
                 },
-                { title: 'Electrical', levels: [] },
-                { title: 'Mechanics', levels: [] },
-                { title: 'Pneumatics', levels: [] },
-                { title: 'Programming', levels: [] },
-                { title: 'Strategy', levels: [] },
             ],
         }
     },

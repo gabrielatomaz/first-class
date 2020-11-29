@@ -7,14 +7,14 @@
                 :fullWidth="false" 
                 :event="addMentor" 
                 icon="chalkboard-teacher" 
-                iconColor="has-text-grey-light"
+                iconColor="grey-light"
             />
             <Button 
                 color="white" 
                 :fullWidth="false" 
                 :event="remove"  
                 icon="trash" 
-                iconColor="has-text-grey-light"
+                iconColor="grey-light"
             />
         </div>
     </Card>

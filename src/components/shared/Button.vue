@@ -54,7 +54,7 @@ export default {
         },
 
         hasIcon() {
-            return this.icon ? `<i class="fas fa-${this.icon} ${this.iconColor}"></i>` : ''
+            return this.icon ? `<i class="fas fa-${this.icon} has-text-${this.iconColor}"></i>` : ''
         },
         
         hasType() {

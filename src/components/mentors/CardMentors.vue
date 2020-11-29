@@ -7,7 +7,7 @@
             :fullWidth="false" 
             :event="remove"  
             icon="trash" 
-            iconColor="has-text-grey-light"
+            iconColor="grey-light"
         />
     </div>
     <div class="has-text-grey ml-1">

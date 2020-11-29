@@ -6,7 +6,7 @@
                 color="white" 
                 :fullWidth="false" 
                 icon="arrow-down" 
-                iconColor="has-text-grey-light" 
+                iconColor="grey-light" 
                 :event="toggleBadges"
                 v-if="hasBadges()"
             />

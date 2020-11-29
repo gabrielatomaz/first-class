@@ -13,14 +13,14 @@
                 color="white" 
                 :fullWidth="false"  
                 icon="question-circle" 
-                iconColor="has-text-grey-light"
+                iconColor="grey-light"
                 :event="askForHelp"
             />
             <Button 
                 color="white" 
                 :fullWidth="false"  
                 icon="trash" 
-                iconColor="has-text-grey-light"
+                iconColor="grey-light"
                 :event="remove"
             />
         </div>
@@ -56,7 +56,7 @@ export default {
 
     methods: {
         iconColor() {
-            return this.watchedContent ? 'has-text-info' : 'has-text-grey-light'
+            return this.watchedContent ? 'info' : 'grey-light'
         },
 
         setWatched() {
