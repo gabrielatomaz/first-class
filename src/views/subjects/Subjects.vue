@@ -11,7 +11,7 @@
                 <Button icon="plus" class="is-pulled-right" :fullWidth="false" type="outlined" :event="showModalAdd" />
             </div>
             <div class="column is-4">
-                <Search placeholder="Search by content title..." :list="subjects" @result="search" />
+                <Search placeholder="Search by subject title..." :list="subjects" @result="search" />
             </div>
         </div>
         <div class="columns">
