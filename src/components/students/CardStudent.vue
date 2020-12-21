@@ -9,19 +9,20 @@
                 icon="chalkboard-teacher" 
                 iconColor="grey-light"
             />
-            <Button 
-                color="white" 
-                :fullWidth="false" 
-                :event="remove"  
-                icon="trash" 
-                iconColor="grey-light"
-            />
+            <ButtonDelete :modal="getModalDeleteConfirm" />
         </div>
+        <ModalConfirm 
+            title="Attention!" 
+            :content="modalConfirm.content" 
+            :buttonConfirm="modalConfirm.buttonConfirm" 
+            @close="close"
+            v-if="showModalConfirm"
+        />
     </Card>
 </template>
 
 <script>
-import { Card, Button } from '../shared'
+import { Card, Button, ButtonDelete, ModalConfirm } from '../shared'
 
 export default {
     name: 'CardStudent',
@@ -29,20 +30,42 @@ export default {
     components: {
         Card,
         Button,
+        ButtonDelete,
+        ModalConfirm,
     },
 
     props: {
         student: Object,
     },
 
-    methods: {
-        remove() {
-            this.$emit('remove', this.student)
-        },
-
-        addMentor() {
-            this.$emit('addMentor', this.student)
+    data() {
+        return { 
+            showModalConfirm: false,
         }
+    },
+
+    computed: {
+        getModalDeleteConfirm() {
+            return {
+                title: 'Attention!',
+                content: `Are you sure you want to remove <b>${this.student.name}</b> from the application?`,
+                button: () => {}
+            }
+        },
+    },
+
+    methods: {
+        addMentor() {
+            this.showModalConfirm = true
+            this.modalConfirm = {
+                content: `Are you sure you want to <b>${this.student.name}</b> become a mentor?`,
+                buttonConfirm: () => { }
+            }
+        }, 
+
+        close() {
+            this.showModalConfirm = false
+        },
     }
 
 }

@@ -2,12 +2,8 @@
   <Card>
     <span class="title is-4 has-text-info"> {{ mentor.name }} </span>
     <div class="is-pulled-right">
-        <Button 
-            color="white" 
-            :fullWidth="false" 
-            :event="remove"  
-            icon="trash" 
-            iconColor="grey-light"
+        <ButtonDelete 
+            :modal="buttonDeleteModal"
         />
     </div>
     <div class="has-text-grey ml-1">
@@ -18,28 +14,25 @@
 </template>
 
 <script>
-import { Card, Button } from '../shared' 
+import { Card, ButtonDelete } from '../shared' 
 
 export default {
     name: 'CardMentors',
 
     components: {
         Card,
-        Button,
+        ButtonDelete,
     },
 
     props: {
         mentor: {
             type: Object,
-        }
+        },
+
+        buttonDeleteModal: {
+            type: Object,
+        },
     },
-
-    methods: {
-        remove() {
-            this.$emit('remove', this.mentor)
-        }
-    }
-
 }
 </script>
 

@@ -20,25 +20,18 @@
                     <CardContent 
                         :title="content.title" 
                         :watched="content.watched" 
-                        @remove="remove(content)" 
+                        :buttonDeleteModal="getModalConfirm(content.title)" 
                     />
                 </div>
             </div>
         </div>
-        <ModalConfirm 
-            title="Attention!" 
-            :content="modalConfirm.content" 
-            :buttonConfirm="modalConfirm.buttonConfirm" 
-            @close="close" 
-            v-if="showModalConfirm"
-        />
     </div>
 </template>
 
 <script>
 import { CardContent } from '../../../../components/subjects/levels/contents'
 import { ModalAdd } from '../../../../components/subjects/shared'
-import { Button, ModalConfirm, Search } from '../../../../components/shared'
+import { Button, Search } from '../../../../components/shared'
 
 export default {
     name: 'Contents',
@@ -48,7 +41,6 @@ export default {
         Search,
         ModalAdd,
         CardContent,
-        ModalConfirm,
     },
 
     data() {
@@ -70,13 +62,13 @@ export default {
         showModalAdd() {
             this.isModalAddActive = !this.isModalAddActive
         },
-
-        remove(content){
-            this.showModalConfirm = true
-
-            this.modalConfirm = {
-                content: `Are you sure you want to delete the <b>"${content.title}"</b> content?`,
-                buttonConfirm: () => {}
+        
+        getModalConfirm(title){
+            return {
+                title: 'Attention!',
+                content: `Are you sure you want to delete the <b>"${title}"</b> content?`,
+                button: () => {
+                }
             }
         },
 

@@ -1,7 +1,7 @@
 <template>
         <button 
             :class="['button', `is-${color}`, isFullWidth, isLoading, hasType, hasSize]"
-            @click="event"
+            @click="onHandler(event)"
             v-html="text || hasIcon"
         />
 </template>
@@ -65,6 +65,13 @@ export default {
             return this.size ? `is-${this.size}` : ''
         },
     },
+
+    methods: {
+        onHandler(event) {
+            event()
+            this.$emit('event')
+        },
+    }
 }
 </script>
 

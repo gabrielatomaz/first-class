@@ -21,24 +21,17 @@
                         :title="subject.title" 
                         :progress="subject.progress" 
                         :path="`subjects/${subject.path}`"
-                        @remove="remove(subject)" 
+                        :buttonDeleteModal="getModalConfirm(subject.title)" 
                     />
                 </div>
             </div>
         </div>
-        <ModalConfirm 
-            title="Attention!" 
-            :content="modalConfirm.content" 
-            :buttonConfirm="modalConfirm.buttonConfirm" 
-            @close="close" 
-            v-if="showModalConfirm"
-        />
     </div>
 </template>
 
 <script>
 import { ModalAdd, CardProgress } from '../../components/subjects/shared'
-import { Button, ModalConfirm, Search } from '../../components/shared'
+import { Button, Search } from '../../components/shared'
 
 export default {
     name: 'Subjects',
@@ -48,7 +41,6 @@ export default {
         Search,
         ModalAdd,
         CardProgress,
-        ModalConfirm,
     },
 
     data() {
@@ -75,12 +67,12 @@ export default {
             this.isModalAddActive = !this.isModalAddActive
         },
 
-        remove(subject){
-            this.showModalConfirm = true
-
-            this.modalConfirm = {
-                content: `Are you sure you want to delete the <b>"${subject.title}"</b> subject?`,
-                buttonConfirm: () => {}
+        getModalConfirm(title){
+            return {
+                title: 'Attention!',
+                content: `Are you sure you want to delete the <b>"${title}"</b> subject?`,
+                button: () => {
+                }
             }
         },
 

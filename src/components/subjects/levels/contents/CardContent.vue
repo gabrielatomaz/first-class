@@ -16,24 +16,19 @@
                 iconColor="grey-light"
                 :event="askForHelp"
             />
-            <Button 
-                color="white" 
-                :fullWidth="false"  
-                icon="trash" 
-                iconColor="grey-light"
-                :event="remove"
-            />
+            <ButtonDelete :modal="buttonDeleteModal" />
         </div>
     </Card>
 </template>
 
 <script>
-import { Card, Button } from '../../../shared'
+import { Card, Button, ButtonDelete } from '../../../shared'
 
 export default {
     name: 'CardContent',
 
     components: { 
+        ButtonDelete,
         Button,
         Card,
     },
@@ -45,7 +40,10 @@ export default {
         },
         watched: {
             type: Boolean,
-        }
+        },
+        buttonDeleteModal: {
+            type: Object,
+        },
     },
 
     data() {

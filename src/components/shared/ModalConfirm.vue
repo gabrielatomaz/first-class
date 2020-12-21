@@ -9,7 +9,7 @@
             <section class="modal-card-body" v-html="content" />
             <footer class="modal-card-foot is-flex is-justify-content-flex-end">
                 <p class="control">
-                    <Button type="info" :event="buttonConfirm" icon="check" />
+                    <Button type="info" :event="buttonConfirm" @event="close" icon="check" />
                 </p>
             </footer>
         </div>

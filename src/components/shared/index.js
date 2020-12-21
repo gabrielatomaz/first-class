@@ -1,5 +1,6 @@
 import ErrorMessage from './ErrorMessage'
 import ModalConfirm from './ModalConfirm'
+import ButtonDelete from './ButtonDelete'
 import Dropdown from './Dropdown'
 import Sidebar from './Sidebar'
 import Button from './Button'
@@ -12,6 +13,7 @@ import Card from './Card'
 export {
     ErrorMessage,
     ModalConfirm,
+    ButtonDelete,
     Dropdown,
     Sidebar,
     Button,

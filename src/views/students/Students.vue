@@ -6,27 +6,19 @@
             </div>
         </div>
         <div v-for="student in searchStudents" :key="student.id">
-            <CardStudent :student="student" @remove="remove" @addMentor="addMentor" />
+            <CardStudent :student="student" />
         </div>
-        <ModalConfirm 
-            title="Attention!" 
-            :content="modalConfirm.content" 
-            :buttonConfirm="modalConfirm.buttonConfirm" 
-            @close="close" 
-            v-if="showModalConfirm"
-        />
     </div>
 </template>
 
 <script>
 import { CardStudent } from '../../components/students'
-import { Search, ModalConfirm } from '../../components/shared'
+import { Search } from '../../components/shared'
 
 export default {
     name: 'Students',
 
     components: {
-        ModalConfirm,
         CardStudent,
         Search,
     },
@@ -47,22 +39,6 @@ export default {
     },
 
     methods: {
-        remove(student) {
-            this.showModalConfirm = true
-            this.modalConfirm = { 
-                content: `Are you sure you want to remove <b>${student.name}</b> from the application?`,
-                buttonConfirm: () => { }
-            }
-        },
-
-        addMentor(student) {
-            this.showModalConfirm = true
-            this.modalConfirm = {
-                content: `Are you sure you want to <b>${student.name}</b> become a mentor?`,
-                buttonConfirm: () => { }
-            }
-        }, 
-
         close() {
             this.showModalConfirm = false
         },
