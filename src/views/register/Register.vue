@@ -109,7 +109,7 @@
                         <Button 
                             class="mt-2"
                             text="Register"
-                            :event="register"
+                            :event="() => { register() }"
                         />
                     </div>
                     <div class="mt-2">

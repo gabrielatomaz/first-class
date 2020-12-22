@@ -71,12 +71,10 @@ export default {
 
     methods: {
         addInput() {
-            event.preventDefault()
             this.inputs.push({ value: '', id: this.getId() })
         },
 
         removeInput(counter) {
-            event.preventDefault()
             this.inputs.splice(counter, 1)
         },
 
@@ -85,8 +83,6 @@ export default {
         },
 
         sendValues() {
-            event.preventDefault()
-            
             for (const input of this.inputs) {
                 if (!input.value) { 
                     this.showErrorMessage = true

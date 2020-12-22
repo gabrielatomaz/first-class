@@ -67,8 +67,9 @@ export default {
     },
 
     methods: {
-        onHandler(event) {
-            event()
+        onHandler(action) {
+            action()
+            event.preventDefault()
             this.$emit('event')
         },
     }

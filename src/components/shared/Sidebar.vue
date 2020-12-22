@@ -58,8 +58,6 @@ export default {
     
     methods: {
         goTo(route) {
-            event.preventDefault()
-
             if (this.$route.path === route) return
             else this.$router.push(route)
         },

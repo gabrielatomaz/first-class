@@ -25,7 +25,7 @@
                         <Button 
                             class="mt-2"
                             text="Login"
-                            :event="login"
+                            :event="() => { login() }"
                         />
                     </form>
                     <div class="mt-2">
@@ -62,9 +62,7 @@ export default {
     },
 
     methods: {
-        login(event) {
-            event.preventDefault();
-
+        login() {
             if (!this.email || !this.password) this.showErrorMessage = true
             else this.$router.push('/subjects')
         },
