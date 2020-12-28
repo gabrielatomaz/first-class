@@ -11,9 +11,11 @@
                     :event="goBack"
                 />
             </div>
-            <figure id="avatar" class="image is-128x128">
-                <img class="is-rounded" src="../../assets/female-avatar.svg">
-            </figure>
+            <div class="columns is-flex is-centered mt-3">
+                <figure class="image">
+                    <img class="img-sidebar" src="../../assets/hat.svg">
+                </figure>
+            </div>
             <div class="mt-4 has-text-centered">
                 <router-link  class="has-text-info" to="/profile"> {{ user.name }} </router-link>
             </div>
@@ -75,9 +77,12 @@ export default {
     min-height: 100vh;
 }
 
-figure#avatar {
+figure.image {
     margin-right: auto;
     margin-left: auto;
+}
+.img-sidebar {
+    width: 200px !important;
 }
 
 </style>

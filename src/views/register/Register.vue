@@ -97,15 +97,6 @@
                                 @change="hasChange(country)"
                             />
                         </div>
-                        <div class="field-body mt-2">
-                            <Dropdown 
-                                :options="dropdownOptions" 
-                                placeholder="Select gender"
-                                v-model="gender.value"
-                                :color="gender.errorClass" 
-                                @change="hasChange(gender)"
-                            />
-                        </div>
                         <Button 
                             class="mt-2"
                             text="Register"
@@ -122,7 +113,7 @@
 </template>
 
 <script>
-import { Logo, Input, Button, Dropdown, ErrorMessage } from '../../components/shared'
+import { Logo, Input, Button, ErrorMessage } from '../../components/shared'
 export default {
     name: 'Register',
 
@@ -130,7 +121,6 @@ export default {
         Logo,
         Input,
         Button,
-        Dropdown,
         ErrorMessage,
     },
 
@@ -147,12 +137,6 @@ export default {
             address: { value: '', errorClass: '' },
             country: { value: '', errorClass: '' },
             gender: { value: '', errorClass: '' },
-            dropdownOptions: [
-                { text: 'Female' }, 
-                { text: 'Male'},
-                { text: 'Non-binary' },
-                { text: 'Other' },
-            ],
         }
     },
 
